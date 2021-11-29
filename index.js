@@ -3,11 +3,19 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+// const morgan = require('morgan');
+// morgan.token('param', function (req, res, param) {
+//     return req.params[param];
+// });
+//
+// app.use(morgan(':method :host :status :param[id] :res[content-length] - :response-time ms'));
 
 const corsOptions = {
     // origin: "http://localhost:3000",
     origin: "*"
 };
+
+
 
 app.use(cors(corsOptions));
 
@@ -21,6 +29,8 @@ app.use(express.urlencoded({extended: true}));
 app.get("/ping", (req, res) => {
     res.send("Pong");
 });
+
+
 
 require("./routes/product.routes.js")(app);
 
