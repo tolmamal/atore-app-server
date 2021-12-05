@@ -2,14 +2,11 @@
 const express = require("express");
 const cors = require("cors");
 
-
-
 const app = express();
 const corsOptions = {
     // origin: "http://localhost:3000",
     origin: "*"
 };
-
 
 app.use(cors(corsOptions));
 
@@ -22,14 +19,12 @@ app.use(express.urlencoded({extended: true}));
 
 
 // simple route
-app.get("/ping", (req, res) => {
+app.get("/ping" ,(req, res) => {
     res.send("Pong");
 });
 
 
 require("./routes/product.routes.js")(app);
-
-
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

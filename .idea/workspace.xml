@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ce89e071-6277-44e9-95ce-865b59c624eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/product.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/product.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/product.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/product.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/logging/store_app.logs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/product.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/product.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +120,7 @@
       <workItem from="1638522347437" duration="14898000" />
       <workItem from="1638564097551" duration="2267000" />
       <workItem from="1638612461441" duration="11936000" />
-      <workItem from="1638641704729" duration="16002000" />
+      <workItem from="1638641704729" duration="22606000" />
     </task>
     <servers />
   </component>
@@ -156,6 +153,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/database/index.js">

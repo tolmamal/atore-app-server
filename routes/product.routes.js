@@ -1,5 +1,10 @@
 const {body, validationResult} = require('express-validator');
-// const product = require("../controllers/product.controller.js");
+const morgan = require('morgan');
+const fs = require('fs');
+const path = require('path');
+const accessLogStream = fs.createWriteStream(path.join('logging', 'store_app.logs'), { flags: 'a' })
+
+
 
 // https://express-validator.github.io/docs/running-imperatively.html
 const validate = validations => {
@@ -53,5 +58,15 @@ module.exports = app => {
     // ]),
     //     product.search);
 
-    app.use('/api/product', router);
+    app.use('/api/product',
+        morgan(function (tokens, req, res) {
+        return [
+            tokens.req.httpVersion,
+            tokens.method(req, res),
+            tokens.url(req, res),
+            tokens.status(req, res),
+            tokens.res(req, res, 'content-length'), ' - ',
+            tokens['response-time'](req, res), 'ms'
+        ].join(' ');
+    } ,{ stream: accessLogStream }) ,router);
 };

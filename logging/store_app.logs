@@ -1,0 +1,7 @@
+ POST /api/product 200       40  -  57.658 ms
+ GET /api/product/search?searchQuery=car 304         -  4.993 ms
+ GET /api/product/search?searchQuery=tea 200       77  -  1.835 ms
+ GET /api/product/search?searchQuery=apple 200       119  -  1.828 ms
+ GET /api/product/search?searchQuery=note 200       145  -  2.017 ms
+ GET /api/product/search?searchQuery=book 200       40  -  2.767 ms
+ GET /api/product/search?searchQuery=laptop 200       40  -  1.523 ms
