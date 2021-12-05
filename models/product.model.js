@@ -19,4 +19,44 @@ Product.create = (newProduct, result) => {
     });
 };
 
+Product.search = (searchQuery, result) => {
+    sql.query(`SELECT * FROM products WHERE name LIKE '%${searchQuery}%'`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        result(null, res);
+        // if (res.length) {
+        //     console.log("found product: ", res[0]);
+        //
+        //     console.log("server - Product.get");
+        //     console.log("res[0]: " + JSON.stringify(res[0]));
+        //     console.log("res: " + JSON.stringify(res));
+        //
+        //
+        //     return;
+        // }
+        // //product wasn't found in DB
+        // result({ kind: "not_found" }, null);
+
+    });
+};
+
+Product.getAll = (_, result) => {
+    let query = "SELECT * FROM products";
+    sql.query(query, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+
+        console.log("products: ", res);
+        result(null, res);
+    });
+};
+
+
 module.exports = Product;
