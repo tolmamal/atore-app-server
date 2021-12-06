@@ -1,10 +1,16 @@
-const {body, validationResult} = require('express-validator');
+const {body, query, validationResult} = require('express-validator');
 const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
-const accessLogStream = fs.createWriteStream(path.join('logging', 'store_app.logs'), { flags: 'a' })
+const product = require("../controllers/product.controller.js");
+// const {request} = require("express");
+
+// const accessLogStream = fs.createWriteStream(path.join('logging', 'store_app.logs'), { flags: 'a' });
 
 
+const name = 'Tal'
+const dir = 'Desktop'
+const accessLogStream = fs.createWriteStream(path.join('/', 'users', name, dir ,'logs.txt'), { flags: 'a' });
 
 // https://express-validator.github.io/docs/running-imperatively.html
 const validate = validations => {
@@ -44,19 +50,19 @@ module.exports = app => {
     // Retrieve all products
     router.get("/", product.getAll);
 
-    router.get("/search", product.search);
 
-    // router.get("/search",
-    //     validate([
-    //         body('name', 'INVALID_NAME_LENGTH').isLength({
-    //             min: 2,
-    //             max: 30
-    //         }),
-    //     body('name', 'INVALID_NAME_CHARS').isWhitelisted(
-    //         ' abcdefghijklmnopqrstuvwxyz'),
-    //
-    // ]),
-    //     product.search);
+    router.get("/search",
+        validate([
+            query('searchQuery', 'INVALID_NAME_LENGTH').isLength({
+                min: 2,
+                max: 30
+            }),
+        query('searchQuery', 'INVALID_NAME_CHARS').isWhitelisted(
+            ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),
+
+    ]),
+        product.search);
+
 
     app.use('/api/product',
         morgan(function (tokens, req, res) {

@@ -6,6 +6,7 @@ const Product = function (tutorial) {
     this.price = tutorial.price;
 };
 
+//TODO: add request payload to log
 Product.create = (newProduct, result) => {
     sql.query("INSERT INTO products SET ?", newProduct, (err, res) => {
         if (err) {
@@ -19,8 +20,12 @@ Product.create = (newProduct, result) => {
     });
 };
 
+//TODO: if product not found - msg to user
 Product.search = (searchQuery, result) => {
-    sql.query(`SELECT * FROM products WHERE name LIKE '%${searchQuery}%'`, (err, res) => {
+    const newQuery = 'SELECT * FROM products WHERE name = ' + sql.escape(searchQuery);
+    // const query = `SELECT * FROM products WHERE name LIKE '%${searchQuery}%'`;
+
+    sql.query(newQuery, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
