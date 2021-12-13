@@ -3,14 +3,13 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const product = require("../controllers/product.controller.js");
-// const {request} = require("express");
 
-// const accessLogStream = fs.createWriteStream(path.join('logging', 'store_app.logs'), { flags: 'a' });
 
 
 const name = 'Tal'
 const dir = 'Desktop'
 const accessLogStream = fs.createWriteStream(path.join('/', 'users', name, dir ,'logs.txt'), { flags: 'a' });
+
 
 // https://express-validator.github.io/docs/running-imperatively.html
 const validate = validations => {
@@ -72,7 +71,11 @@ module.exports = app => {
             tokens.url(req, res),
             tokens.status(req, res),
             tokens.res(req, res, 'content-length'), ' - ',
-            tokens['response-time'](req, res), 'ms'
+            tokens['response-time'](req, res), 'ms',
+            JSON.stringify(req.body),
+            JSON.stringify(res.body),
+
+
         ].join(' ');
     } ,{ stream: accessLogStream }) ,router);
 };

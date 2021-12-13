@@ -23,7 +23,6 @@ Product.create = (newProduct, result) => {
 //TODO: if product not found - msg to user
 Product.search = (searchQuery, result) => {
     const newQuery = 'SELECT * FROM products WHERE name = ' + sql.escape(searchQuery);
-    // const query = `SELECT * FROM products WHERE name LIKE '%${searchQuery}%'`;
 
     sql.query(newQuery, (err, res) => {
         if (err) {
@@ -33,18 +32,7 @@ Product.search = (searchQuery, result) => {
         }
 
         result(null, res);
-        // if (res.length) {
-        //     console.log("found product: ", res[0]);
-        //
-        //     console.log("server - Product.get");
-        //     console.log("res[0]: " + JSON.stringify(res[0]));
-        //     console.log("res: " + JSON.stringify(res));
-        //
-        //
-        //     return;
-        // }
-        // //product wasn't found in DB
-        // result({ kind: "not_found" }, null);
+
 
     });
 };
